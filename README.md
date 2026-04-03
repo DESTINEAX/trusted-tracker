@@ -1,16 +1,44 @@
-# tracker_demo
+# Trusted Tracker (Flutter + Firebase)
 
-A new Flutter project.
+**Trusted Tracker** is a consent-based personal locator prototype (Life360-style).  
+Two trusted users can share location through a cloud **middleware** (Firebase Firestore), view each other on a map, and receive a **safe-zone (geofence) exit alert**.
 
-## Getting Started
+## Key Features (Prototype)
+- **Consent-based sharing**: Start/Stop sharing with clear UI status
+- **Real-time sync via middleware**: User A ⇄ **Firestore** ⇄ User B
+- **Map view**: Shows both users with “Jump to A/B”
+- **Safe Zone**: Set center + radius; alert on exit
+- **Audit trail**: Logs tab records actions and alerts (timestamps)
 
-This project is a starting point for a Flutter application.
+## Tech Stack
+- Flutter (Dart)
+- Firebase: Firestore (and Authentication in final hardening)
+- `flutter_map` + OpenStreetMap tiles
+- Android Emulator for mobile testing
 
-A few resources to get you started if this is your first Flutter project:
+## Architecture (High-Level)
+- **Clients**: Two Flutter apps (User A and User B)
+- **Middleware/Backend**: Firebase Firestore
+- **Data**:
+  - `locations/{id}` → `{ lat, lng, ts, sharing }`
+  - `zones/{ownerId}` → `{ target, lat, lng, radiusM, ts }`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> Note: A and B do **not** communicate directly. They exchange updates through Firestore.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Project Structure
+- `lib/` → main Dart code (UI + logic)
+- `android/` → Android wrapper (permissions/build)
+- `web/` → Web wrapper
+- `pubspec.yaml` → dependencies
+
+## How to Run (Web / Chrome)
+```bash
+flutter clean
+flutter pub get
+flutter run -d chrome
+
+## How to Run (App / Android)
+```bash
+ flutter clean 
+ flutter pub get
+EMULATOR_ID=$(flutter devices | awk '/emulator-/{print $1; exit}') echo "Using emulator: $EMULATOR_ID" flutter run -d "$EMULATOR_ID"
