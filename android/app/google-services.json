@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983112114995",
+    "project_id": "digital-system-project-67067",
+    "storage_bucket": "digital-system-project-67067.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983112114995:android:5c19b80fc3852d51fc1446",
+        "android_client_info": {
+          "package_name": "com.example.tracker_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeNruQwNuu3XOrHbxI6AWh82025AkqF3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
