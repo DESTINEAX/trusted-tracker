@@ -37,8 +37,10 @@ flutter clean
 flutter pub get
 flutter run -d chrome
 
-## How to Run (App / Android)
+
+## How to Run (App / Android) # Example id: emulator-5554
 ```bash
- flutter clean 
- flutter pub get
-EMULATOR_ID=$(flutter devices | awk '/emulator-/{print $1; exit}') echo "Using emulator: $EMULATOR_ID" flutter run -d "$EMULATOR_ID"
+flutter clean
+flutter pub get
+flutter devices
+flutter run -d emulator-5554
