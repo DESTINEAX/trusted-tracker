@@ -12,3 +12,14 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+/build/
+/android/build/
+/ios/Pods/
+/ios/.symlinks/
+/**/DerivedData/
+
+# Flutter generated plugin registrants
+**/Flutter/GeneratedPluginRegistrant.*
+windows/flutter/generated_plugin_registrant.*
+windows/flutter/generated_plugins.*
